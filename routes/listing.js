@@ -28,6 +28,8 @@ router
 .get(wrapAsync(listingController.index))
 .post(isLoggedIn,validateListing,wrapAsync(listingController.createListing));
 
+router.get("/new",isLoggedIn,listingController.renderNewForm);
+
 
 router.route("/:id")
 .get(wrapAsync(listingController.showListing))
